@@ -10,93 +10,45 @@
     .admin-title{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:900;
       letter-spacing:4px;color:var(--navy);text-align:center;margin-bottom:8px}
     .admin-sub{text-align:center;color:#666;font-size:.9rem;margin-bottom:36px}
-
-    /* Login */
-    .login-box{max-width:380px;margin:80px auto;background:#fff;
-      border:2px solid var(--navy);padding:40px;text-align:center}
-    .login-box h2{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:900;
-      letter-spacing:3px;color:var(--navy);margin-bottom:24px}
-    .login-box input{width:100%;border:1.5px solid #ccc;padding:12px 16px;
-      font-size:.9rem;margin-bottom:12px;font-family:inherit;outline:none}
+    .login-box{max-width:380px;margin:80px auto;background:#fff;border:2px solid var(--navy);padding:40px;text-align:center}
+    .login-box h2{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:900;letter-spacing:3px;color:var(--navy);margin-bottom:24px}
+    .login-box input{width:100%;border:1.5px solid #ccc;padding:12px 16px;font-size:.9rem;margin-bottom:12px;font-family:inherit;outline:none}
     .login-box input:focus{border-color:var(--navy)}
     .login-box button{width:100%;background:var(--navy);color:#fff;border:none;padding:14px;
-      font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;
-      letter-spacing:3px;cursor:pointer;transition:background .2s}
+      font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;letter-spacing:3px;cursor:pointer;transition:background .2s}
     .login-box button:hover{background:var(--navy-mid)}
     .login-err{color:#e63030;font-size:.85rem;margin-bottom:12px;display:none}
-
-    /* Dashboard */
-    .dash{display:none}
-    .dash.active{display:block}
+    .dash{display:none}.dash.active{display:block}
     .dash-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin-bottom:32px}
-    .dash-card{background:var(--navy);color:#fff;padding:24px;border-radius:8px;
-      text-decoration:none;transition:transform .2s,box-shadow .2s;text-align:center}
+    .dash-card{background:var(--navy);color:#fff;padding:24px;border-radius:8px;text-decoration:none;transition:transform .2s,box-shadow .2s;text-align:center}
     .dash-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(26,43,94,.3)}
-    .dash-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:800;
-      letter-spacing:2px;margin-bottom:6px}
+    .dash-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:800;letter-spacing:2px;margin-bottom:6px}
     .dash-card p{font-size:.8rem;color:rgba(255,255,255,.7)}
-
     .dash-section{margin-bottom:32px;border:1px solid #eee;border-radius:8px;overflow:hidden}
     .dash-section-head{background:var(--light-gray);padding:16px 20px;font-family:'Barlow Condensed',sans-serif;
-      font-size:1rem;font-weight:800;letter-spacing:2px;color:var(--navy);cursor:pointer;
-      display:flex;justify-content:space-between;align-items:center}
+      font-size:1rem;font-weight:800;letter-spacing:2px;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
     .dash-section-head::after{content:'\\25BC';font-size:.7rem;transition:transform .2s}
     .dash-section.open .dash-section-head::after{transform:rotate(180deg)}
     .dash-section-body{display:none;padding:16px 20px}
     .dash-section.open .dash-section-body{display:block}
-
-    .item-row{display:flex;align-items:center;gap:12px;padding:10px 0;
-      border-bottom:1px solid #f0f0f0}
+    .item-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f0f0f0}
     .item-row:last-child{border-bottom:none}
-    .item-key{font-size:.75rem;font-weight:700;color:var(--navy);letter-spacing:1px;
-      min-width:180px;flex-shrink:0}
-    .item-val{font-size:.85rem;color:#444;flex:1;overflow:hidden;text-overflow:ellipsis;
-      white-space:nowrap;max-width:400px}
+    .item-key{font-size:.75rem;font-weight:700;color:var(--navy);letter-spacing:1px;min-width:180px;flex-shrink:0}
+    .item-val{font-size:.85rem;color:#444;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:400px}
     .item-val img{height:40px;border-radius:4px;vertical-align:middle}
-    .item-actions button{padding:5px 12px;font-size:.75rem;font-weight:700;border:none;
-      border-radius:4px;cursor:pointer;letter-spacing:.5px}
-    .btn-edit{background:var(--navy);color:#fff}
-    .btn-edit:hover{background:var(--navy-mid)}
-    .btn-del{background:#e63030;color:#fff}
-    .btn-del:hover{background:#c02020}
-
+    .item-actions button{padding:5px 12px;font-size:.75rem;font-weight:700;border:none;border-radius:4px;cursor:pointer;letter-spacing:.5px}
+    .btn-del{background:#e63030;color:#fff}.btn-del:hover{background:#c02020}
     .dash-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
-    .dash-actions button{padding:10px 20px;font-weight:700;font-size:.85rem;border:none;
-      border-radius:6px;cursor:pointer;letter-spacing:1px}
-    .btn-export{background:#27ae60;color:#fff}
-    .btn-export:hover{background:#219150}
-    .btn-import{background:#f39c12;color:#fff}
-    .btn-import:hover{background:#d48a0a}
-    .btn-clear{background:#e63030;color:#fff}
-    .btn-clear:hover{background:#c02020}
-    .btn-logout{background:#666;color:#fff}
-    .btn-logout:hover{background:#444}
+    .dash-actions button{padding:10px 20px;font-weight:700;font-size:.85rem;border:none;border-radius:6px;cursor:pointer;letter-spacing:1px}
+    .btn-export{background:#27ae60;color:#fff}.btn-export:hover{background:#219150}
+    .btn-import{background:#f39c12;color:#fff}.btn-import:hover{background:#d48a0a}
+    .btn-clear{background:#e63030;color:#fff}.btn-clear:hover{background:#c02020}
+    .btn-logout{background:#666;color:#fff}.btn-logout:hover{background:#444}
   </style>
 </head>
-<body>
+<body data-page="admin">
 
-<nav class="navbar" id="navbar">
-  <div class="nav-wrap">
-    <a class="brand" href="index.html">
-      <div class="brand-logo"></div>
-      <div class="brand-text"><span class="brand-name">SELAH</span><span class="brand-sub">INTERNATIONAL CO.,LTD.</span></div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="about.html">ABOUT</a></li>
-      <li><a href="products.html">PRODUCTS</a></li>
-      <li><a href="partners.html">PARTNERS</a></li>
-      <li><a href="contact.html">CONTACT</a></li>
-      <li><a href="admin.html" class="active nav-globe" title="Admin">&#9881;</a></li>
-    </ul>
-    <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-<nav class="mob-nav" id="mobNav">
-  <a href="index.html">HOME</a><a href="about.html">ABOUT</a>
-  <a href="products.html">PRODUCTS</a><a href="partners.html">PARTNERS</a><a href="contact.html">CONTACT</a>
-  <a href="admin.html" class="active">ADMIN</a>
-</nav>
+<div id="site-header"></div>
 
 <!-- LOGIN -->
 <div id="loginView">
@@ -114,8 +66,6 @@
   <div class="admin-wrap">
     <h1 class="admin-title">ADMIN DASHBOARD</h1>
     <p class="admin-sub">Manage text and images across the website. Click any element on pages to edit inline.</p>
-
-    <!-- Quick links -->
     <div class="dash-cards">
       <a href="index.html" class="dash-card"><h3>HOME</h3><p>Edit hero, intro, products</p></a>
       <a href="about.html" class="dash-card"><h3>ABOUT</h3><p>Edit about content</p></a>
@@ -124,8 +74,6 @@
       <a href="partners.html" class="dash-card"><h3>PARTNERS</h3><p>Edit partner logos</p></a>
       <a href="contact.html" class="dash-card"><h3>CONTACT</h3><p>Edit contact info</p></a>
     </div>
-
-    <!-- Actions -->
     <div class="dash-actions">
       <button class="btn-export" id="btnExport">Export JSON</button>
       <button class="btn-import" id="btnImport">Import JSON</button>
@@ -133,161 +81,64 @@
       <button class="btn-clear" id="btnClear">Clear All Changes</button>
       <button class="btn-logout" id="btnLogout">Logout</button>
     </div>
-
-    <!-- Content list -->
     <div id="contentList"></div>
   </div>
 </div>
 
-<footer class="footer" style="margin-top:40px">
-  <div class="footer-in">
-    <p class="foot-copy">&copy; 2026, SELAH INTERNATIONAL — Admin Panel</p>
-  </div>
-</footer>
+<div id="site-footer"></div>
 
 <script src="js/main.js"></script>
+<script src="js/cms.js"></script>
+<script src="js/includes.js"></script>
 <script>
 (function(){
   'use strict';
-
-  const STORAGE_KEY = 'selah_cms_data';
-  const ADMIN_KEY = 'selah_admin_logged_in';
-  const ADMIN_PASS_KEY = 'selah_admin_pass';
-  const DEFAULT_PASS = 'selah2026';
-
-  function getPass() { return localStorage.getItem(ADMIN_PASS_KEY) || DEFAULT_PASS; }
-  function getData() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch { return {}; } }
-  function saveData(d) { localStorage.setItem(STORAGE_KEY, JSON.stringify(d)); }
-
-  const loginView = document.getElementById('loginView');
-  const dashView = document.getElementById('dashView');
-
-  function showDash() {
-    loginView.style.display = 'none';
-    dashView.classList.add('active');
-    renderContent();
+  var STORAGE_KEY='selah_cms_data',ADMIN_KEY='selah_admin_logged_in',ADMIN_PASS_KEY='selah_admin_pass',DEFAULT_PASS='selah2026';
+  function getPass(){return localStorage.getItem(ADMIN_PASS_KEY)||DEFAULT_PASS}
+  function getData(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||{}}catch(e){return{}}}
+  function saveData(d){localStorage.setItem(STORAGE_KEY,JSON.stringify(d))}
+  var loginView=document.getElementById('loginView'),dashView=document.getElementById('dashView');
+  function showDash(){loginView.style.display='none';dashView.classList.add('active');renderContent()}
+  if(localStorage.getItem(ADMIN_KEY)==='true')showDash();
+  document.getElementById('loginBtn').addEventListener('click',doLogin);
+  document.getElementById('loginPass').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin()});
+  function doLogin(){
+    if(document.getElementById('loginPass').value===getPass()){
+      localStorage.setItem(ADMIN_KEY,'true');showDash();
+    }else{document.getElementById('loginErr').style.display='block'}
   }
-
-  if (localStorage.getItem(ADMIN_KEY) === 'true') showDash();
-
-  // Login
-  document.getElementById('loginBtn').addEventListener('click', doLogin);
-  document.getElementById('loginPass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
-
-  function doLogin() {
-    const pass = document.getElementById('loginPass').value;
-    if (pass === getPass()) {
-      localStorage.setItem(ADMIN_KEY, 'true');
-      showDash();
-    } else {
-      document.getElementById('loginErr').style.display = 'block';
-    }
-  }
-
-  // Logout
-  document.getElementById('btnLogout').addEventListener('click', () => {
-    localStorage.removeItem(ADMIN_KEY);
-    location.reload();
+  document.getElementById('btnLogout').addEventListener('click',function(){localStorage.removeItem(ADMIN_KEY);location.reload()});
+  document.getElementById('btnExport').addEventListener('click',function(){
+    var blob=new Blob([JSON.stringify(getData(),null,2)],{type:'application/json'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='selah-cms-data.json';a.click();URL.revokeObjectURL(a.href);
   });
-
-  // Export
-  document.getElementById('btnExport').addEventListener('click', () => {
-    const data = getData();
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'selah-cms-data.json';
-    a.click();
-    URL.revokeObjectURL(a.href);
-  });
-
-  // Import
-  document.getElementById('btnImport').addEventListener('click', () => {
-    document.getElementById('importFile').click();
-  });
-  document.getElementById('importFile').addEventListener('change', e => {
-    const file = e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = ev => {
-      try {
-        const imported = JSON.parse(ev.target.result);
-        const current = getData();
-        const merged = Object.assign(current, imported);
-        saveData(merged);
-        renderContent();
-        alert('Imported successfully! ' + Object.keys(imported).length + ' items.');
-      } catch {
-        alert('Invalid JSON file.');
-      }
-    };
+  document.getElementById('btnImport').addEventListener('click',function(){document.getElementById('importFile').click()});
+  document.getElementById('importFile').addEventListener('change',function(e){
+    var file=e.target.files[0];if(!file)return;var reader=new FileReader();
+    reader.onload=function(ev){try{var imp=JSON.parse(ev.target.result);saveData(Object.assign(getData(),imp));renderContent();alert('Imported '+Object.keys(imp).length+' items.')}catch(err){alert('Invalid JSON file.')}};
     reader.readAsText(file);
   });
-
-  // Clear all
-  document.getElementById('btnClear').addEventListener('click', () => {
-    if (confirm('Are you sure? This will remove all CMS changes and restore defaults.')) {
-      localStorage.removeItem(STORAGE_KEY);
-      renderContent();
-      alert('All changes cleared.');
-    }
+  document.getElementById('btnClear').addEventListener('click',function(){
+    if(confirm('Are you sure? This will remove all CMS changes and restore defaults.')){localStorage.removeItem(STORAGE_KEY);renderContent();alert('All changes cleared.')}
   });
-
-  // Render content list
-  function renderContent() {
-    const data = getData();
-    const keys = Object.keys(data);
-    const container = document.getElementById('contentList');
-
-    if (keys.length === 0) {
-      container.innerHTML = '<p style="text-align:center;color:#999;padding:40px">No custom content saved yet. Visit any page and click elements to edit them.</p>';
-      return;
-    }
-
-    const groups = {};
-    keys.forEach(key => {
-      const prefix = key.split('-')[0];
-      if (!groups[prefix]) groups[prefix] = [];
-      groups[prefix].push(key);
-    });
-
-    let html = '';
-    for (const [group, gkeys] of Object.entries(groups)) {
-      html += '<div class="dash-section open">';
-      html += '<div class="dash-section-head">' + group.toUpperCase() + ' (' + gkeys.length + ')</div>';
-      html += '<div class="dash-section-body">';
-      gkeys.forEach(key => {
-        const val = data[key];
-        const isImage = val.startsWith('http') || val.startsWith('data:image') || val.startsWith('images/');
-        const preview = isImage
-          ? '<img src="' + val.replace(/"/g, '&quot;') + '" alt="preview">'
-          : val.substring(0, 80) + (val.length > 80 ? '...' : '');
-        html += '<div class="item-row">';
-        html += '<div class="item-key">' + key + '</div>';
-        html += '<div class="item-val">' + preview + '</div>';
-        html += '<div class="item-actions">';
-        html += '<button class="btn-del" data-key="' + key + '">Delete</button>';
-        html += '</div></div>';
+  function renderContent(){
+    var data=getData(),keys=Object.keys(data),container=document.getElementById('contentList');
+    if(!keys.length){container.innerHTML='<p style="text-align:center;color:#999;padding:40px">No custom content saved yet. Visit any page and click elements to edit them.</p>';return}
+    var groups={};keys.forEach(function(k){var p=k.split('-')[0];if(!groups[p])groups[p]=[];groups[p].push(k)});
+    var html='';
+    for(var g in groups){
+      html+='<div class="dash-section open"><div class="dash-section-head">'+g.toUpperCase()+' ('+groups[g].length+')</div><div class="dash-section-body">';
+      groups[g].forEach(function(key){
+        var val=data[key],isImg=val.startsWith('http')||val.startsWith('data:image')||val.startsWith('images/');
+        var preview=isImg?'<img src="'+val.replace(/"/g,'&quot;')+'" alt="preview">':val.substring(0,80)+(val.length>80?'...':'');
+        html+='<div class="item-row"><div class="item-key">'+key+'</div><div class="item-val">'+preview+'</div><div class="item-actions"><button class="btn-del" data-key="'+key+'">Delete</button></div></div>';
       });
-      html += '</div></div>';
+      html+='</div></div>';
     }
-    container.innerHTML = html;
-
-    container.querySelectorAll('.dash-section-head').forEach(head => {
-      head.addEventListener('click', () => head.parentElement.classList.toggle('open'));
-    });
-
-    container.querySelectorAll('.btn-del').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const key = btn.getAttribute('data-key');
-        const d = getData();
-        delete d[key];
-        saveData(d);
-        renderContent();
-      });
-    });
+    container.innerHTML=html;
+    container.querySelectorAll('.dash-section-head').forEach(function(h){h.addEventListener('click',function(){h.parentElement.classList.toggle('open')})});
+    container.querySelectorAll('.btn-del').forEach(function(b){b.addEventListener('click',function(){var d=getData();delete d[b.getAttribute('data-key')];saveData(d);renderContent()})});
   }
-
 })();
 </script>
 </body>
