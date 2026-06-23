@@ -1,0 +1,23 @@
+RewriteEngine On
+
+
+# บล็อกเฉพาะ /wp, /wp-admin, /wp-login, /wordpress, /blog, /site, /new เท่านั้น
+RewriteCond %{REQUEST_URI} ^/(wp(-admin)?|wp-login|wordpress|blog|site|new)(/|$) [NC]
+RewriteRule ^ - [F,L]
+
+# บล็อก path /Dashboard/production/*
+RewriteCond %{REQUEST_URI} ^/Dashboard/production
+RewriteRule ^.*$ - [F,L]
+
+# เติม .php ถ้าไม่มีนามสกุลและไฟล์ไม่ใช่ไฟล์จริง
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteRule ^([^\.]+)$ $1.php [NC,L] 
+
+# เติม .html ถ้าไม่มีนามสกุลและไฟล์ไม่ใช่ไฟล์จริง
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteRule ^([^\.]+)$ $1.html [NC,L] 
+
+
+<IfModule mod_headers.c>
+Header set Cache-Control "private"
+</IfModule>
