@@ -1,3 +1,9 @@
 <Files "subscribers.csv">
     Require all denied
 </Files>
+<Files "smtp_config.php">
+    Require all denied
+</Files>
+<Files "mailer.php">
+    Require all denied
+</Files>

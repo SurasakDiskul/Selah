@@ -1,9 +1,9 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 
-define('TO',        'SELAH@SELAH-INTER.COM');
-define('SITE',      'SELAH INTERNATIONAL');
-define('CSV_FILE',  __DIR__ . '/subscribers.csv');
+require_once __DIR__ . '/mailer.php';
+
+define('CSV_FILE', __DIR__ . '/subscribers.csv');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -45,18 +45,14 @@ if (!$handle) {
 fputcsv($handle, [$email, $timestamp, $ip]);
 fclose($handle);
 
-$subject = '[' . SITE . '] New Email Subscriber';
-$body = "New subscriber on " . SITE . "\n"
+$subject = '[SELAH INTERNATIONAL] New Email Subscriber';
+$body = "New subscriber on SELAH INTERNATIONAL website\n"
       . str_repeat('-', 40) . "\n"
       . "Email : $email\n"
       . "Time  : $timestamp\n"
       . "IP    : $ip\n"
       . str_repeat('-', 40) . "\n";
 
-$headers = "From: noreply@selah-inter.com\r\n"
-         . "Reply-To: $email\r\n"
-         . "Content-Type: text/plain; charset=UTF-8\r\n";
-
-mail(TO, $subject, $body, $headers);
+selah_send_mail(ADMIN_EMAIL, $subject, $body, $email);
 
 echo json_encode(['success' => true, 'message' => 'Subscribed successfully! Thank you.']);
