@@ -12,6 +12,8 @@ require_once __DIR__ . '/PHPMailer/src/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+$GLOBALS['selah_mail_error'] = '';
+
 function selah_send_mail($to, $subject, $htmlBody, $replyTo = '') {
     $mail = new PHPMailer(true);
     try {
@@ -23,6 +25,7 @@ function selah_send_mail($to, $subject, $htmlBody, $replyTo = '') {
         $mail->SMTPSecure = SMTP_SECURE;
         $mail->Port       = SMTP_PORT;
         $mail->CharSet    = 'UTF-8';
+        $mail->SMTPDebug  = 0;
 
         $mail->setFrom(SMTP_FROM, SMTP_FROM_NAME);
         $mail->addAddress($to);
@@ -37,8 +40,10 @@ function selah_send_mail($to, $subject, $htmlBody, $replyTo = '') {
         $mail->AltBody = strip_tags(str_replace(['<br>', '<br/>', '<br />'], "\n", $htmlBody));
 
         $mail->send();
+        $GLOBALS['selah_mail_error'] = '';
         return true;
     } catch (Exception $e) {
+        $GLOBALS['selah_mail_error'] = $mail->ErrorInfo;
         error_log('SELAH Mailer Error: ' . $mail->ErrorInfo);
         return false;
     }
