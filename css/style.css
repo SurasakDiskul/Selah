@@ -116,11 +116,16 @@ button {
    ============================================================ */
 .navbar {
   background: var(--navy);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 9000;
   width: 100%;
   transition: box-shadow 0.3s;
+}
+body {
+  padding-top: 74px;
 }
 .navbar.shadow {
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
