@@ -45,14 +45,48 @@ if (!$handle) {
 fputcsv($handle, [$email, $timestamp, $ip]);
 fclose($handle);
 
-$subject = '[SELAH INTERNATIONAL] New Email Subscriber';
-$body = "New subscriber on SELAH INTERNATIONAL website\n"
-      . str_repeat('-', 40) . "\n"
-      . "Email : $email\n"
-      . "Time  : $timestamp\n"
-      . "IP    : $ip\n"
-      . str_repeat('-', 40) . "\n";
+$totalSubs = count($existing) + 1;
 
-selah_send_mail(ADMIN_EMAIL, $subject, $body, $email);
+$contentHtml = '
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr><td style="text-align:center;padding-bottom:24px;">
+<div style="display:inline-block;background:#e8f8f0;border-radius:50%;width:64px;height:64px;line-height:64px;text-align:center;font-size:28px;">&#9989;</div>
+</td></tr>
+
+<tr><td style="text-align:center;padding-bottom:8px;">
+<div style="font-size:18px;color:#13317C;font-weight:bold;">New Email Subscriber</div>
+</td></tr>
+
+<tr><td style="text-align:center;padding-bottom:28px;">
+<div style="font-size:13px;color:#8892a8;">' . date('d M Y, H:i') . '</div>
+</td></tr>
+
+<tr><td>
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f8f9fc;border-radius:8px;overflow:hidden;">
+<tr>
+<td style="padding:16px 20px;border-bottom:1px solid #e8ebf2;">
+<div style="font-size:11px;color:#8892a8;text-transform:uppercase;letter-spacing:1px;font-weight:bold;margin-bottom:4px;">Email Address</div>
+<a href="mailto:' . $email . '" style="font-size:16px;color:#39CCFF;text-decoration:none;font-weight:bold;">' . $email . '</a>
+</td>
+</tr>
+<tr>
+<td style="padding:16px 20px;border-bottom:1px solid #e8ebf2;">
+<div style="font-size:11px;color:#8892a8;text-transform:uppercase;letter-spacing:1px;font-weight:bold;margin-bottom:4px;">IP Address</div>
+<div style="font-size:14px;color:#333;">' . $ip . '</div>
+</td>
+</tr>
+<tr>
+<td style="padding:16px 20px;">
+<div style="font-size:11px;color:#8892a8;text-transform:uppercase;letter-spacing:1px;font-weight:bold;margin-bottom:4px;">Total Subscribers</div>
+<div style="font-size:24px;color:#13317C;font-weight:bold;">' . $totalSubs . '</div>
+</td>
+</tr>
+</table>
+</td></tr>
+</table>';
+
+$subject = '[SELAH] New Subscriber: ' . $email;
+$html = selah_email_template('New Email Subscriber', $contentHtml);
+selah_send_mail(ADMIN_EMAIL, $subject, $html, $email);
 
 echo json_encode(['success' => true, 'message' => 'Subscribed successfully! Thank you.']);

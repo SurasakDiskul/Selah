@@ -7,3 +7,6 @@
 <Files "mailer.php">
     Require all denied
 </Files>
+<FilesMatch "^PHPMailer">
+    Require all denied
+</FilesMatch>
