@@ -1,1 +1,3 @@
 .claude/
+php/smtp_config.php
+php/subscribers.csv
