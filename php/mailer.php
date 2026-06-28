@@ -61,18 +61,8 @@ function selah_email_template($title, $contentHtml, $footerNote = '') {
 <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(19,49,124,0.08);">
 
 <!-- HEADER -->
-<tr><td style="background:linear-gradient(135deg,#13317C 0%,#1c429c 100%);padding:36px 40px;text-align:center;">
-<table cellpadding="0" cellspacing="0" style="margin:0 auto;">
-<tr>
-<td style="padding-right:14px;vertical-align:middle;">
-<div style="width:44px;height:44px;border:3px solid rgba(57,204,255,0.6);border-radius:12px;display:inline-block;"></div>
-</td>
-<td style="vertical-align:middle;">
-<div style="font-family:Arial,sans-serif;font-size:24px;font-weight:bold;color:#ffffff;letter-spacing:2px;">SELAH</div>
-<div style="font-family:Arial,sans-serif;font-size:9px;color:rgba(255,255,255,0.6);letter-spacing:1.5px;">INTERNATIONAL CO.,LTD.</div>
-</td>
-</tr>
-</table>
+<tr><td style="background:#13317C;padding:32px 40px;text-align:center;">
+<img src="https://selahinter.com/images/logo/Asset%2040%4072x.webp" width="160" alt="SELAH INTERNATIONAL" style="display:inline-block;max-width:160px;height:auto;">
 </td></tr>
 
 <!-- TITLE BAR -->
