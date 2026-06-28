@@ -6,10 +6,17 @@
 window.__selahMain = function () {
   'use strict';
 
-  /* ---- NAVBAR SHADOW ---- */
+  /* ---- NAVBAR SHADOW + TRANSPARENT ---- */
   var navbar = document.querySelector('.navbar');
+  var isHeroPage = document.body.classList.contains('hero-page');
+
+  if (isHeroPage && navbar) navbar.classList.add('transparent');
+
   window.addEventListener('scroll', function () {
-    if (navbar) navbar.classList.toggle('shadow', window.scrollY > 24);
+    if (!navbar) return;
+    var scrolled = window.scrollY > 60;
+    navbar.classList.toggle('shadow', scrolled);
+    if (isHeroPage) navbar.classList.toggle('transparent', !scrolled);
   }, { passive: true });
 
   /* ---- MOBILE NAV ---- */

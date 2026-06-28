@@ -122,10 +122,20 @@ button {
   right: 0;
   z-index: 9000;
   width: 100%;
-  transition: box-shadow 0.3s;
+  transition: background 0.35s, box-shadow 0.3s;
+}
+.navbar.transparent {
+  background: transparent;
 }
 body {
   padding-top: 74px;
+}
+body.hero-page {
+  padding-top: 0;
+}
+body.hero-page .hero {
+  margin-top: -74px;
+  padding-top: 0;
 }
 .navbar.shadow {
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
@@ -472,7 +482,7 @@ body {
   transition: transform 7s linear;
 }
 .intro-photo:hover img {
-  transform: scale(1.00);
+  transform: scale(1);
 }
 .intro-card {
   background: var(--navy);
@@ -512,7 +522,7 @@ body {
 }
 .intro-tagline {
   font-family: "Oswald", sans-serif;
-  font-size: 2.0rem;
+  font-size: 2rem;
   font-weight: 600;
   color: var(--blue);
   letter-spacing: 0.3px;
@@ -659,8 +669,8 @@ html[lang="th"] .intro-body {
   flex-wrap: wrap;
 }
 .retail-circle {
-  width: 138px;
-  height: 138px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
@@ -697,11 +707,12 @@ html[lang="th"] .intro-body {
 }
 .highlights-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 3rem;
 }
 .highlights-tile {
-  aspect-ratio: 1;
+  aspect-ratio: auto;
   overflow: hidden;
   position: relative;
   background: var(--light-gray);
@@ -710,7 +721,9 @@ html[lang="th"] .intro-body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s var(--ease), filter 0.3s;
+  transition:
+    transform 0.5s var(--ease),
+    filter 0.3s;
 }
 .highlights-tile:hover img {
   transform: scale(1.1);
@@ -719,7 +732,11 @@ html[lang="th"] .intro-body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(19,49,124,0.35) 100%);
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(19, 49, 124, 0.35) 100%
+  );
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -1345,14 +1362,14 @@ textarea.cf {
     grid-template-columns: 1fr 1fr;
   }
   .highlights-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .ep-row {
     gap: 40px;
   }
   .retail-circle {
-    width: 104px;
-    height: 104px;
+    width: 120px;
+    height: 120px;
   }
   .retail-row {
     gap: 18px;
