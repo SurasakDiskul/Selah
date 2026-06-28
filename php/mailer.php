@@ -62,7 +62,7 @@ function selah_email_template($title, $contentHtml, $footerNote = '') {
 
 <!-- HEADER -->
 <tr><td style="background:#13317C;padding:32px 40px;text-align:center;">
-<img src="https://selahinter.com/images/logo/Asset%2040%4072x.webp" width="160" alt="SELAH INTERNATIONAL" style="display:inline-block;max-width:160px;height:auto;">
+<img src="https://selahinter.com/images/logo/selah-logo-email.png" width="160" alt="SELAH INTERNATIONAL" style="display:inline-block;max-width:160px;height:auto;">
 </td></tr>
 
 <!-- TITLE BAR -->
