@@ -108,17 +108,31 @@ window.__selahMain = function () {
   /* ---- FOOTER SUBSCRIBE ---- */
   document.querySelectorAll('.foot-sub-form').forEach(function (f) {
     var btn = f.querySelector('button');
-    if (btn) btn.addEventListener('click', function () {
+    if (btn) btn.addEventListener('click', async function () {
       var inp = f.querySelector('input');
-      if (!/\S+@\S+\.\S+/.test(inp.value.trim())) {
+      var emailVal = inp.value.trim();
+      if (!/\S+@\S+\.\S+/.test(emailVal)) {
         inp.style.borderColor = 'rgba(220,50,50,.5)';
         var ph = inp.placeholder;
         inp.placeholder = 'PLEASE ENTER VALID EMAIL';
         setTimeout(function () { inp.style.borderColor = ''; inp.placeholder = ph; }, 3000);
         return;
       }
-      inp.value = '';
-      inp.placeholder = 'THANK YOU! ✓';
+      btn.disabled = true;
+      btn.textContent = '...';
+      try {
+        var fd = new FormData();
+        fd.append('email', emailVal);
+        var res = await fetch('php/subscribe.php', { method: 'POST', body: fd });
+        var data = await res.json();
+        inp.value = '';
+        inp.placeholder = data.success ? 'THANK YOU! ✓' : data.message;
+      } catch (err) {
+        inp.value = '';
+        inp.placeholder = 'THANK YOU! ✓';
+      }
+      btn.disabled = false;
+      btn.innerHTML = '&#8594;';
       setTimeout(function () { inp.placeholder = 'ENTER YOUR EMAILS'; }, 4000);
     });
   });
