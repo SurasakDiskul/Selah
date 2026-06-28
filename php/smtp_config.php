@@ -17,11 +17,11 @@
  * - Use that generated password below instead
  */
 
-define('SMTP_HOST',     'smtp.office365.com');
+define('SMTP_HOST',     'smtp.gmail.com');
 define('SMTP_PORT',     587);
 define('SMTP_SECURE',   'tls');
-define('SMTP_USER',     'SELAH@SELAH-INTER.COM');
-define('SMTP_PASS',     'YOUR_PASSWORD_HERE');
-define('SMTP_FROM',     'SELAH@SELAH-INTER.COM');
+define('SMTP_USER',     'pukpik1337@gmail.com');
+define('SMTP_PASS',     'YOUR_APP_PASSWORD_HERE');
+define('SMTP_FROM',     'pukpik1337@gmail.com');
 define('SMTP_FROM_NAME','SELAH INTERNATIONAL');
 define('ADMIN_EMAIL',   'pukpik1337@gmail.com');
