@@ -1,24 +1,39 @@
 <footer class="footer">
   <div class="footer-in">
     <div class="foot-logo">
-      <div class="foot-logo-mark"></div>
+      <span class="selah-mark">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="selahGradFoot" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffffff"/>
+              <stop offset="0.55" stop-color="#39CCFF"/>
+              <stop offset="1" stop-color="#1c429c"/>
+            </linearGradient>
+          </defs>
+          <g fill="none" stroke="url(#selahGradFoot)" stroke-width="11" stroke-linejoin="round" stroke-linecap="round">
+            <polyline points="26,42 50,27 74,42"/>
+            <polyline points="26,42 50,27 74,42" transform="rotate(120 50 50)"/>
+            <polyline points="26,42 50,27 74,42" transform="rotate(240 50 50)"/>
+          </g>
+        </svg>
+      </span>
       <div class="foot-logo-text">
         <div class="foot-logo-name">SELAH</div>
         <div class="foot-logo-sub">INTERNATIONAL CO.,LTD.</div>
       </div>
     </div>
     <nav class="foot-nav">
-      <a href="about">ABOUT</a> |
-      <a href="products">PRODUCTS</a> |
-      <a href="partners">PARTNERS</a> |
-      <a href="contact">CONTACT US</a>
+      <a href="about"    data-i18n="nav_about">ABOUT</a> |
+      <a href="products" data-i18n="nav_products">PRODUCTS</a> |
+      <a href="partners" data-i18n="nav_partners">PARTNERS</a> |
+      <a href="contact"  data-i18n="nav_contact">CONTACT</a>
     </nav>
-    <p class="foot-follow">FOLLOW US : <a href="#" class="foot-social">f</a><a href="#" class="foot-social">&#9400;</a></p>
-    <p class="foot-sub-title">SUBSCRIBE TO OUR EMAILS</p>
+    <p class="foot-follow"><span data-i18n="footer_follow">FOLLOW US :</span> <a href="#" class="foot-social">f</a><a href="#" class="foot-social">&#9400;</a></p>
+    <p class="foot-sub-title" data-i18n="footer_subscribe">SUBSCRIBE TO OUR EMAILS</p>
     <div class="foot-sub-form">
-      <input type="email" placeholder="ENTER YOUR EMAILS" aria-label="Email">
+      <input type="email" data-i18n-ph="footer_email_ph" placeholder="ENTER YOUR EMAILS" aria-label="Email">
       <button aria-label="Subscribe">&#8594;</button>
     </div>
-    <p class="foot-copy" data-cms="footer-copy">&copy; 2026, SELAH INTERNATIONAL | REFUND POLICY | PRIVACY POLICY | TERMS OF SERVICE | SHIPPING POLICY | CONTACT INFORMATION</p>
+    <p class="foot-copy" data-i18n="footer_copy">&copy; 2026, SELAH INTERNATIONAL | REFUND POLICY | PRIVACY POLICY | TERMS OF SERVICE | SHIPPING POLICY | CONTACT INFORMATION</p>
   </div>
 </footer>

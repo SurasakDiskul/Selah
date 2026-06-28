@@ -1,33 +1,50 @@
 <nav class="navbar" id="navbar">
   <div class="nav-wrap">
     <a class="brand" href="index">
-      <div class="brand-logo"></div>
-      <div class="brand-text">
+      <span class="selah-mark">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="selahGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#bfeaff"/>
+              <stop offset="0.55" stop-color="#39CCFF"/>
+              <stop offset="1" stop-color="#13317C"/>
+            </linearGradient>
+          </defs>
+          <g fill="none" stroke="url(#selahGrad)" stroke-width="11" stroke-linejoin="round" stroke-linecap="round">
+            <polyline points="26,42 50,27 74,42"/>
+            <polyline points="26,42 50,27 74,42" transform="rotate(120 50 50)"/>
+            <polyline points="26,42 50,27 74,42" transform="rotate(240 50 50)"/>
+          </g>
+        </svg>
+      </span>
+      <span class="brand-text">
         <span class="brand-name">SELAH</span>
         <span class="brand-sub">INTERNATIONAL CO.,LTD.</span>
-      </div>
+      </span>
     </a>
+
     <div class="nav-partners">
       <div class="nav-p"><span class="np-samsung">SAMSUNG<br>MECHATECH</span></div>
-      <div class="nav-p"><span class="np-vms">VMS<span> &#9699;</span><small>ASEPTIC FILLING</small></span></div>
-      <div class="nav-p"><span class="np-hy">&#54620;&#44397;&#50556;&#44984;&#47476;&#53944;&#51032; &#49352;&#47196;&#50868; &#51060;&#47492;<br><b style="color:#e63030">h</b><b style="color:#27ae60">y</b></span></div>
+      <div class="nav-p"><span class="np-vms">VMS<small>ASEPTIC FILLING</small></span></div>
     </div>
+
     <ul class="nav-links">
-      <li><a href="index" data-nav="index">HOME</a></li>
-      <li><a href="about" data-nav="about">ABOUT</a></li>
-      <li><a href="products" data-nav="products">PRODUCTS</a></li>
-      <li><a href="partners" data-nav="partners">PARTNERS</a></li>
-      <li><a href="contact" data-nav="contact">CONTACT</a></li>
-      <li><a href="admin" class="nav-globe" title="Admin">&#9881;</a></li>
+      <li><a href="index"    data-nav="index"    data-i18n="nav_home">HOME</a></li>
+      <li><a href="about"    data-nav="about"    data-i18n="nav_about">ABOUT</a></li>
+      <li><a href="products" data-nav="products" data-i18n="nav_products">PRODUCTS</a></li>
+      <li><a href="partners" data-nav="partners" data-i18n="nav_partners">PARTNERS</a></li>
+      <li><a href="contact"  data-nav="contact"  data-i18n="nav_contact">CONTACT</a></li>
+      <li><button class="lang-toggle" type="button" onclick="window.selahToggleLang&&window.selahToggleLang()" aria-label="Switch language"><span class="globe">&#127760;</span><span class="lang-cur">EN</span></button></li>
     </ul>
+
     <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <nav class="mob-nav" id="mobNav">
-  <a href="index" data-nav="index">HOME</a>
-  <a href="about" data-nav="about">ABOUT</a>
-  <a href="products" data-nav="products">PRODUCTS</a>
-  <a href="partners" data-nav="partners">PARTNERS</a>
-  <a href="contact" data-nav="contact">CONTACT</a>
-  <a href="admin" data-nav="admin">ADMIN</a>
+  <a href="index"    data-nav="index"    data-i18n="nav_home">HOME</a>
+  <a href="about"    data-nav="about"    data-i18n="nav_about">ABOUT</a>
+  <a href="products" data-nav="products" data-i18n="nav_products">PRODUCTS</a>
+  <a href="partners" data-nav="partners" data-i18n="nav_partners">PARTNERS</a>
+  <a href="contact"  data-nav="contact"  data-i18n="nav_contact">CONTACT</a>
+  <a href="#" onclick="window.selahToggleLang&&window.selahToggleLang();return false;">&#127760; <span class="lang-cur">EN</span></a>
 </nav>

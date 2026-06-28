@@ -10,45 +10,62 @@
 
 <div id="site-header"></div>
 
-<!-- PRODUCT HERO -->
-<section class="prod-hero">
-  <div class="prod-hero-bg" data-cms-bg="prod-hero" style="background-image:url('https://placehold.co/1920x500/1a0a00/ffffff?text=Products+Hero')"></div>
-</section>
-
-<!-- PRODUCT DETAIL -->
 <section class="sec">
   <div class="wrap">
-    <h2 class="prod-page-title" data-anim="up" data-cms="prod-title">DUTCHMILL WILLS</h2>
-    <div class="prod-detail-grid" style="margin-top:44px">
-      <div class="bottle-wrap" data-anim="left">
-        <img data-cms-img="prod-bottle" src="https://placehold.co/260x460/f5f5f5/1a2b5e?text=Bottle" alt="DutchMill Will bottle" loading="lazy">
-      </div>
-      <div data-anim="right">
-        <div class="dm-will-logo">
-          <img data-cms-img="prod-dm-logo" src="https://placehold.co/200x75/e8e8e8/1976d2?text=DutchMill+Will" alt="DutchMill Will">
+    <h2 class="sec-title" data-anim="up" data-i18n="products_page_title">PRODUCTS</h2>
+
+    <div class="timeline">
+      <!-- DUTCHMILL WILLS -->
+      <div class="tl-row" data-anim="up">
+        <div class="tl-media"><a href="dutchmill"><img data-cms-img="tl-dutchmill-photo" src="images/prod-dutchmill.jpg" alt="DutchMill Wills" loading="lazy"></a></div>
+        <div class="tl-info">
+          <img class="tl-logo" data-cms-img="tl-dutchmill-logo" src="images/dm-will-logo.png" alt="DutchMill Will">
+          <div class="tl-divider"></div>
+          <p class="tl-year" data-i18n="py_dutchmill">2025 - PRESENT DRINKING YOGURT</p>
+          <a class="tl-cta" href="dutchmill" data-i18n="tl_viewmore">VIEW DETAILS</a>
         </div>
-        <p class="prod-lead" data-cms="prod-lead">We played an important role in coordinating the import of key ingredients used in the production of WILL Drinking Yogurt, Korea's leading best-selling yogurt drink brand.</p>
-        <p class="prod-body" data-cms="prod-body">Drawing from the original Korean recipe, the product was further developed and refined to better suit Thai consumer's preferences, while maintaining its authentic quality and health benefits. We also oversee the import coordination of essential ingredients directly from the country of origin to ensure consistent quality and nutritional value in every bottle, supporting digestive health and wellness for Thai consumers.</p>
+      </div>
+
+      <!-- MAEIL SOYMILK (reverse) -->
+      <div class="tl-row reverse" data-anim="up">
+        <div class="tl-media"><a href="maeil"><img data-cms-img="tl-maeil-photo" src="images/prod-maeil.jpg" alt="Maeil Soymilk" loading="lazy"></a></div>
+        <div class="tl-info">
+          <img class="tl-logo" data-cms-img="tl-maeil-logo" src="images/logo-maeil.png" alt="Maeil">
+          <div class="tl-divider"></div>
+          <p class="tl-year" data-i18n="py_maeil">2022 SOYMILK</p>
+          <a class="tl-cta" href="maeil" data-i18n="tl_viewmore">VIEW DETAILS</a>
+        </div>
+      </div>
+
+      <!-- ARABUS COFFEE -->
+      <div class="tl-row" data-anim="up">
+        <div class="tl-media"><a href="arabus"><img data-cms-img="tl-arabus-photo" src="images/prod-arabus.jpg" alt="Arabus Coffee" loading="lazy"></a></div>
+        <div class="tl-info">
+          <p class="pb-name" style="font-size:2rem" data-i18n="prod_arabus">ARABUS COFFEE</p>
+          <div class="tl-divider"></div>
+          <p class="tl-year" data-i18n="py_arabus">2015 - 2025 ARABUS COFFEE</p>
+          <a class="tl-cta" href="arabus" data-i18n="tl_viewmore">VIEW DETAILS</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHERE TO BUY -->
 <section class="sec" style="padding-top:0">
   <div class="wrap-md" style="text-align:center">
-    <h2 class="sec-title" data-anim="up" data-cms="prod-retail-title">WHERE TO BUY MY PRODUCTS</h2>
+    <h2 class="sec-title" data-anim="up" data-i18n="retail_title">WHERE TO BUY PRODUCTS</h2>
     <div class="retail-row" data-stagger>
-      <div class="retail-circle" data-anim="scale"><img data-cms-img="prod-retail-1" src="https://placehold.co/120x120/ffffff/333333?text=Lotus's" alt="Lotus's"></div>
-      <div class="retail-circle" data-anim="scale"><img data-cms-img="prod-retail-2" src="https://placehold.co/120x120/ffffff/e63030?text=Big+C" alt="Big C"></div>
-      <div class="retail-circle" data-anim="scale"><img data-cms-img="prod-retail-3" src="https://placehold.co/120x120/ffffff/333333?text=Gourmet" alt="Gourmet Market"></div>
-      <div class="retail-circle" data-anim="scale"><img data-cms-img="prod-retail-4" src="https://placehold.co/120x120/ffffff/333333?text=Tops" alt="Tops"></div>
+      <div class="retail-circle" data-anim="scale"><img data-cms-img="prod-retail-1" src="images/retail-lotus.png" alt="Lotus's"></div>
+      <div class="retail-circle" data-anim="scale"><img data-cms-img="prod-retail-2" src="images/retail-bigc.png" alt="Big C"></div>
+      <div class="retail-circle" data-anim="scale"><img data-cms-img="prod-retail-3" src="images/retail-gourmet.png" alt="Gourmet Market"></div>
+      <div class="retail-circle" data-anim="scale"><img data-cms-img="prod-retail-4" src="images/retail-tops.png" alt="Tops"></div>
     </div>
   </div>
 </section>
 
 <div id="site-footer"></div>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 <script src="js/cms.js"></script>
 <script src="js/includes.js"></script>

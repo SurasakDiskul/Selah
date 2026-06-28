@@ -39,9 +39,10 @@ window.__selahCms = function () {
 
   // ── Count editables ──
   var textEls = document.querySelectorAll('[data-cms]');
+  var i18nEls = document.querySelectorAll('[data-i18n]');
   var imgEls = document.querySelectorAll('[data-cms-img]');
   var bgEls = document.querySelectorAll('[data-cms-bg]');
-  var totalEditable = textEls.length + imgEls.length + bgEls.length;
+  var totalEditable = textEls.length + i18nEls.length + imgEls.length + bgEls.length;
 
   // ── Inject admin styles ──
   var style = document.createElement('style');
@@ -76,14 +77,14 @@ window.__selahCms = function () {
     'body.cms-active{padding-top:46px}' +
     'body.cms-active .navbar{top:46px}' +
     'body.cms-active .mob-nav{top:106px}' +
-    '[data-cms],[data-cms-img],[data-cms-bg]{position:relative}' +
-    'body.cms-active [data-cms]:hover,body.cms-active [data-cms-img]:hover,body.cms-active [data-cms-bg]:hover{' +
+    '[data-cms],[data-i18n],[data-cms-img],[data-cms-bg]{position:relative}' +
+    'body.cms-active [data-cms]:hover,body.cms-active [data-i18n]:hover,body.cms-active [data-cms-img]:hover,body.cms-active [data-cms-bg]:hover{' +
     'outline:2px dashed #ffd700!important;outline-offset:3px;cursor:pointer}' +
-    'body.cms-active [data-cms]::after,body.cms-active [data-cms-img]::after,body.cms-active [data-cms-bg]::after{' +
+    'body.cms-active [data-cms]::after,body.cms-active [data-i18n]::after,body.cms-active [data-cms-img]::after,body.cms-active [data-cms-bg]::after{' +
     'content:attr(data-cms-label);position:absolute;top:-8px;right:-4px;z-index:100;' +
     'background:#ffd700;color:#1a1a2e;font-size:.6rem;font-weight:800;letter-spacing:.5px;' +
-    'padding:2px 8px;border-radius:3px;opacity:0;pointer-events:none;transition:opacity .15s;white-space:nowrap;font-family:"Barlow Condensed",sans-serif}' +
-    'body.cms-active [data-cms]:hover::after,body.cms-active [data-cms-img]:hover::after,body.cms-active [data-cms-bg]:hover::after{opacity:1}' +
+    'padding:2px 8px;border-radius:3px;opacity:0;pointer-events:none;transition:opacity .15s;white-space:nowrap;font-family:"Oswald",sans-serif}' +
+    'body.cms-active [data-cms]:hover::after,body.cms-active [data-i18n]:hover::after,body.cms-active [data-cms-img]:hover::after,body.cms-active [data-cms-bg]:hover::after{opacity:1}' +
     '.cms-edit-overlay{position:fixed;inset:0;z-index:100000;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);' +
     'display:flex;align-items:center;justify-content:center;animation:cmsFadeIn .2s ease}' +
     '@keyframes cmsFadeIn{from{opacity:0}to{opacity:1}}' +
@@ -113,6 +114,7 @@ window.__selahCms = function () {
 
   // ── Label all editables ──
   textEls.forEach(function (el) { el.setAttribute('data-cms-label', 'EDIT TEXT'); });
+  i18nEls.forEach(function (el) { el.setAttribute('data-cms-label', 'EDIT TEXT'); });
   imgEls.forEach(function (el) { el.setAttribute('data-cms-label', 'EDIT IMAGE'); });
   bgEls.forEach(function (el) { el.setAttribute('data-cms-label', 'EDIT BACKGROUND'); });
 
@@ -128,7 +130,7 @@ window.__selahCms = function () {
       '<div class="cms-banner-info">' +
         '<div class="cms-banner-text">Logged in as <strong>Administrator</strong> — click any highlighted element to edit</div>' +
         '<div class="cms-banner-stats">' +
-          '<div class="cms-stat"><b>' + textEls.length + '</b> texts</div>' +
+          '<div class="cms-stat"><b>' + (textEls.length + i18nEls.length) + '</b> texts</div>' +
           '<div class="cms-stat"><b>' + imgEls.length + '</b> images</div>' +
           '<div class="cms-stat"><b>' + bgEls.length + '</b> backgrounds</div>' +
           '<div class="cms-stat"><b>' + savedCount + '</b> saved edits</div>' +
@@ -262,10 +264,51 @@ window.__selahCms = function () {
     overlay.addEventListener('click', function (e) { if (e.target === overlay) overlay.remove(); });
   }
 
+  function openI18nEditor(el) {
+    var key = el.getAttribute('data-i18n');
+    var lang = (window.selahGetLang ? window.selahGetLang() : 'en');
+    var ovKey = 'i18n:' + lang + ':' + key;
+    var data = getData();
+    var current = data[ovKey] !== undefined ? data[ovKey] : el.innerHTML;
+
+    var overlay = document.createElement('div');
+    overlay.className = 'cms-edit-overlay';
+    overlay.innerHTML =
+      '<div class="cms-edit-box">' +
+        '<h3>' + key + '</h3>' +
+        '<div class="cms-edit-type"><span>TEXT &middot; ' + lang.toUpperCase() + '</span> Editing the ' + (lang === 'en' ? 'English' : 'Thai') + ' version (switch language with the globe to edit the other)</div>' +
+        '<textarea id="cmsEditVal">' + current.replace(/</g, '&lt;') + '</textarea>' +
+        '<div class="cms-edit-btns">' +
+          '<button class="cms-btn-reset" id="cmsReset">Reset Default</button>' +
+          '<button class="cms-btn-cancel" id="cmsCancel">Cancel</button>' +
+          '<button class="cms-btn-save" id="cmsSave">Save</button>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(overlay);
+    document.getElementById('cmsEditVal').focus();
+
+    document.getElementById('cmsSave').onclick = function () {
+      var val = document.getElementById('cmsEditVal').value;
+      var d = getData(); d[ovKey] = val; saveData(d);
+      if (window.selahSetLang) window.selahSetLang(lang); else el.innerHTML = val;
+      overlay.remove(); toast('Saved: ' + key + ' (' + lang.toUpperCase() + ')', 'success');
+    };
+    document.getElementById('cmsCancel').onclick = function () { overlay.remove(); };
+    document.getElementById('cmsReset').onclick = function () {
+      if (!confirm('Reset this text to the built-in default?')) return;
+      var d = getData(); delete d[ovKey]; saveData(d);
+      if (window.selahSetLang) window.selahSetLang(lang);
+      overlay.remove(); toast('Reset: ' + key, 'success');
+    };
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) overlay.remove(); });
+  }
+
   document.addEventListener('click', function (e) {
     if (!document.body.classList.contains('cms-active')) return;
     var textEl = e.target.closest('[data-cms]');
     if (textEl) { e.preventDefault(); e.stopPropagation(); openTextEditor(textEl); return; }
+    var i18nEl = e.target.closest('[data-i18n]');
+    if (i18nEl && i18nEl.tagName !== 'A') { e.preventDefault(); e.stopPropagation(); openI18nEditor(i18nEl); return; }
     var imgEl = e.target.closest('[data-cms-img]');
     if (imgEl) { e.preventDefault(); e.stopPropagation(); openImageEditor(imgEl, 'img'); return; }
     var bgEl = e.target.closest('[data-cms-bg]');

@@ -9,121 +9,118 @@
 </head>
 <body data-page="index">
 
-<!-- HEADER -->
 <div id="site-header"></div>
 
 <!-- HERO SLIDER -->
 <section class="hero">
-  <div class="slide on">
-    <div class="slide-bg" data-cms-bg="home-hero-1" style="background-image:url('https://placehold.co/1920x600/1a2b5e/ffffff?text=Hero+Slide+1')"></div>
-    <div class="slide-shade"></div>
-  </div>
-  <div class="slide">
-    <div class="slide-bg" data-cms-bg="home-hero-2" style="background-image:url('https://placehold.co/1920x600/2a3b6e/ffffff?text=Hero+Slide+2');background-position:center 20%"></div>
-    <div class="slide-shade"></div>
-  </div>
-  <div class="slide">
-    <div class="slide-bg" data-cms-bg="home-hero-3" style="background-image:url('https://placehold.co/1920x600/3a4b7e/ffffff?text=Hero+Slide+3')"></div>
-    <div class="slide-shade"></div>
-  </div>
-  <div class="hero-dots">
-    <span class="hdot on"></span><span class="hdot"></span><span class="hdot"></span>
-  </div>
+  <div class="slide on"><div class="slide-bg" data-cms-bg="home-hero-1" style="background-image:url('images/hero1.jpg')"></div><div class="slide-shade"></div></div>
+  <div class="slide"><div class="slide-bg" data-cms-bg="home-hero-2" style="background-image:url('images/product-hero.jpg');background-position:center 20%"></div><div class="slide-shade"></div></div>
+  <div class="slide"><div class="slide-bg" data-cms-bg="home-hero-3" style="background-image:url('images/about-product.jpg')"></div><div class="slide-shade"></div></div>
+  <div class="hero-dots"><span class="hdot on"></span><span class="hdot"></span><span class="hdot"></span></div>
 </section>
 
-<!-- SELAH INTERNATIONAL INTRO -->
+<!-- INTRO -->
 <section class="sec">
   <div class="wrap">
-    <h2 class="sec-title" data-anim="up" data-cms="home-intro-title">SELAH INTERNATIONAL</h2>
+    <h2 class="sec-title" data-anim="up" data-i18n="home_intro_title">SELAH INTERNATIONAL</h2>
     <div class="intro-grid" data-anim="up">
       <div class="intro-photo">
-        <img data-cms-img="home-intro-photo" src="https://placehold.co/600x400/e8e8e8/999999?text=Intro+Photo" alt="DutchMill Will product" loading="lazy">
+        <img data-cms-img="home-intro-photo" src="images/intro-left.jpg" alt="SELAH product" loading="lazy">
       </div>
       <div class="intro-card">
         <div class="intro-card-logo">
-          <div class="card-logo-mark"></div>
+          <span class="selah-mark">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="selahGradIntro" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff"/><stop offset="0.55" stop-color="#39CCFF"/><stop offset="1" stop-color="#1c429c"/>
+              </linearGradient></defs>
+              <g fill="none" stroke="url(#selahGradIntro)" stroke-width="11" stroke-linejoin="round" stroke-linecap="round">
+                <polyline points="26,42 50,27 74,42"/>
+                <polyline points="26,42 50,27 74,42" transform="rotate(120 50 50)"/>
+                <polyline points="26,42 50,27 74,42" transform="rotate(240 50 50)"/>
+              </g>
+            </svg>
+          </span>
           <div class="card-logo-texts">
             <span class="card-logo-name">SELAH</span>
             <span class="card-logo-sub">INTERNATIONAL CO.,LTD.</span>
           </div>
         </div>
-        <p class="intro-tagline" data-cms="home-intro-tagline">Bringing Premium Korean Health<br>&amp; Wellness Products to Thailand</p>
-        <p class="intro-body" data-cms="home-intro-body1">We carefully select and coordinate the import of high-quality, certified products from Korea, connecting Thai entrepreneurs with trusted manufacturers and innovative health solutions.</p>
-        <p class="intro-body" data-cms="home-intro-body2">With attention to quality, safety, and every detail, we aim to support healthier everyday lifestyles in Thailand.</p>
+        <p class="intro-tagline" data-i18n="home_intro_tagline">Bringing Premium Korean Health<br>&amp; Wellness Products to Thailand</p>
+        <p class="intro-body" data-i18n="home_intro_body1">We carefully select and coordinate the import of high-quality, certified products from Korea, connecting Thai entrepreneurs with trusted manufacturers and innovative health solutions.</p>
+        <p class="intro-body" data-i18n="home_intro_body2">With attention to quality, safety, and every detail, we aim to support healthier everyday lifestyles in Thailand.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SPECIAL EXCLUSIVE PARTNERS -->
-<div class="ep-strip">
+<section class="sec" style="padding-top:0">
   <div class="wrap">
-    <h2 class="sec-title" data-anim="up" data-cms="home-ep-title">SPECIAL EXCLUSIVE PARTNERS</h2>
+    <h2 class="sec-title" data-anim="up" data-i18n="ep_title">SPECIAL EXCLUSIVE PARTNERS</h2>
     <div class="ep-row" data-stagger>
-      <div class="ep-item" data-anim="up"><img data-cms-img="home-ep-samsung" src="https://placehold.co/200x50/e8e8e8/1a2b5e?text=Samsung+Mechatech" alt="Samsung Mechatech"></div>
-      <div class="ep-item" data-anim="up"><img data-cms-img="home-ep-vms" src="https://placehold.co/200x50/e8e8e8/cc1100?text=VMS+Aseptic" alt="VMS Aseptic Filling"></div>
-      <div class="ep-item" data-anim="up"><img data-cms-img="home-ep-hy" src="https://placehold.co/200x50/e8e8e8/e63030?text=HY" alt="HY"></div>
-    </div>
-  </div>
-</div>
-
-<!-- OUR PRODUCTS -->
-<section class="sec">
-  <div class="wrap">
-    <h2 class="sec-title" data-anim="up" data-cms="home-products-title">OUR PRODUCTS</h2>
-    <div class="products-grid" data-stagger>
-      <div class="prod-card" data-anim="up">
-        <div class="prod-card-img" data-cms-bg="home-prod-1" style="background-image:url('https://placehold.co/400x350/f0e6d3/333333?text=Arabus+Coffee')"></div>
-        <p class="prod-label" data-cms="home-prod-label-1">ARABUS COFFEE</p>
-      </div>
-      <div class="prod-card" data-anim="up">
-        <div class="prod-card-img" data-cms-bg="home-prod-2" style="background-image:url('https://placehold.co/400x350/d3e6f0/333333?text=DutchMill+Wills')"></div>
-        <p class="prod-label" data-cms="home-prod-label-2">DUTCHMILL WILLS</p>
-      </div>
-      <div class="prod-card" data-anim="up">
-        <div class="prod-card-img" data-cms-bg="home-prod-3" style="background-image:url('https://placehold.co/400x350/e6f0d3/333333?text=Maeil+Soymilk')"></div>
-        <p class="prod-label" data-cms="home-prod-label-3">MAEIL SOYMILK</p>
-      </div>
+      <div class="ep-item" data-anim="up"><img data-cms-img="home-ep-samsung" src="images/ep-samsung.png" alt="Samsung Mechatech"></div>
+      <div class="ep-item" data-anim="up"><img data-cms-img="home-ep-vms" src="images/ep-vms.png" alt="VMS Aseptic Filling"></div>
     </div>
   </div>
 </section>
 
-<!-- BANNER QUOTE -->
+<!-- PRODUCTS -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="sec-title" data-anim="up" data-i18n="products_title">PRODUCTS</h2>
+    <div class="products-grid" data-stagger>
+      <a class="prod-card" data-anim="up" href="arabus">
+        <div class="prod-card-img" data-cms-bg="home-prod-1" style="background-image:url('images/prod-arabus.jpg')"></div>
+        <p class="prod-label" data-i18n="prod_arabus">ARABUS COFFEE</p>
+      </a>
+      <a class="prod-card" data-anim="up" href="dutchmill">
+        <div class="prod-card-img" data-cms-bg="home-prod-2" style="background-image:url('images/prod-dutchmill.jpg')"></div>
+        <p class="prod-label" data-i18n="prod_dutchmill">DUTCHMILL WILLS</p>
+      </a>
+      <a class="prod-card" data-anim="up" href="maeil">
+        <div class="prod-card-img" data-cms-bg="home-prod-3" style="background-image:url('images/prod-maeil.jpg')"></div>
+        <p class="prod-label" data-i18n="prod_maeil">MAEIL SOYMILK</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER -->
 <div class="banner">
-  <p class="banner-l1" data-anim="fade" data-cms="home-banner-l1">GOOD HEALTH BEGINS WITH</p>
-  <p class="banner-l2" data-anim="fade" data-cms="home-banner-l2">THE CHOICES WE MAKE EVERY DAY.</p>
+  <p class="banner-l1" data-anim="fade" data-i18n="banner_l1">GOOD HEALTH BEGINS WITH</p>
+  <p class="banner-l2" data-anim="fade" data-i18n="banner_l2">THE CHOICES WE MAKE EVERY DAY.</p>
 </div>
 
 <!-- WHERE TO BUY -->
 <section class="sec">
   <div class="wrap-md" style="text-align:center">
-    <h2 class="sec-title" data-anim="up" data-cms="home-retail-title">WHERE TO BUY MY PRODUCTS</h2>
+    <h2 class="sec-title" data-anim="up" data-i18n="retail_title">WHERE TO BUY PRODUCTS</h2>
     <div class="retail-row" data-stagger>
-      <div class="retail-circle" data-anim="scale"><img data-cms-img="home-retail-1" src="https://placehold.co/120x120/ffffff/333333?text=Lotus's" alt="Lotus's"></div>
-      <div class="retail-circle" data-anim="scale"><img data-cms-img="home-retail-2" src="https://placehold.co/120x120/ffffff/e63030?text=Big+C" alt="Big C"></div>
-      <div class="retail-circle" data-anim="scale"><img data-cms-img="home-retail-3" src="https://placehold.co/120x120/ffffff/333333?text=Gourmet" alt="Gourmet Market"></div>
-      <div class="retail-circle" data-anim="scale"><img data-cms-img="home-retail-4" src="https://placehold.co/120x120/ffffff/333333?text=Tops" alt="Tops"></div>
+      <div class="retail-circle" data-anim="scale"><img data-cms-img="home-retail-1" src="images/retail-lotus.png" alt="Lotus's"></div>
+      <div class="retail-circle" data-anim="scale"><img data-cms-img="home-retail-2" src="images/retail-bigc.png" alt="Big C"></div>
+      <div class="retail-circle" data-anim="scale"><img data-cms-img="home-retail-3" src="images/retail-gourmet.png" alt="Gourmet Market"></div>
+      <div class="retail-circle" data-anim="scale"><img data-cms-img="home-retail-4" src="images/retail-tops.png" alt="Tops"></div>
     </div>
   </div>
 </section>
 
-<!-- INSTAGRAM -->
+<!-- RECENT HIGHLIGHTS -->
 <div class="ig-sec sec-sm">
   <div class="wrap">
-    <p class="ig-label" data-anim="up" data-cms="home-ig-label">FOLLOW US ON INSTAGRAM</p>
+    <p class="ig-label" data-anim="up" data-i18n="highlights">RECENT HIGHLIGHTS</p>
     <div class="ig-grid" data-stagger>
-      <div class="ig-tile" data-anim="up"><img data-cms-img="home-ig-1" src="https://placehold.co/300x300/e8e8e8/999999?text=IG+1" alt="" loading="lazy"></div>
-      <div class="ig-tile" data-anim="up"><img data-cms-img="home-ig-2" src="https://placehold.co/300x300/e0e0e0/999999?text=IG+2" alt="" loading="lazy"></div>
-      <div class="ig-tile" data-anim="up"><img data-cms-img="home-ig-3" src="https://placehold.co/300x300/d8d8d8/999999?text=IG+3" alt="" loading="lazy"></div>
-      <div class="ig-tile" data-anim="up"><img data-cms-img="home-ig-4" src="https://placehold.co/300x300/d0d0d0/999999?text=IG+4" alt="" loading="lazy"></div>
+      <div class="ig-tile" data-anim="up"><img data-cms-img="home-ig-1" src="images/ig1.jpg" alt="" loading="lazy"></div>
+      <div class="ig-tile" data-anim="up"><img data-cms-img="home-ig-2" src="images/ig2.jpg" alt="" loading="lazy"></div>
+      <div class="ig-tile" data-anim="up"><img data-cms-img="home-ig-3" src="images/ig3.jpg" alt="" loading="lazy"></div>
+      <div class="ig-tile" data-anim="up"><img data-cms-img="home-ig-4" src="images/ig4.jpg" alt="" loading="lazy"></div>
     </div>
-    <p class="ig-follow" data-anim="fade">FOLLOW US : <a href="#" aria-label="Facebook">f</a> <a href="#" aria-label="Instagram">&#9400;</a></p>
   </div>
 </div>
 
-<!-- FOOTER -->
 <div id="site-footer"></div>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 <script src="js/cms.js"></script>
 <script src="js/includes.js"></script>
