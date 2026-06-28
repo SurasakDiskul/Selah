@@ -24,4 +24,4 @@ define('SMTP_USER',     'SELAH@SELAH-INTER.COM');
 define('SMTP_PASS',     'YOUR_PASSWORD_HERE');
 define('SMTP_FROM',     'SELAH@SELAH-INTER.COM');
 define('SMTP_FROM_NAME','SELAH INTERNATIONAL');
-define('ADMIN_EMAIL',   'SELAH@SELAH-INTER.COM');
+define('ADMIN_EMAIL',   'pukpik1337@gmail.com');
