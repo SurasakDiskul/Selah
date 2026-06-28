@@ -11,15 +11,29 @@
 <div id="site-header"></div>
 
 <section class="prod-hero">
-  <div class="prod-hero-bg" data-cms-bg="maeil-hero" style="background-image:url('images/maeil-hero.webp')"></div>
+  <div class="prod-hero-bg" data-cms-bg="maeil-hero" style="background-image:url('images/Asset 47.webp')"></div>
 </section>
 
 <section class="sec">
   <div class="wrap">
     <h2 class="prod-page-title" data-anim="up" data-i18n="prod_maeil">MAEIL SOYMILK</h2>
     <div class="prod-detail-grid reverse" style="margin-top:48px">
-      <div class="bottle-wrap" data-anim="right">
-        <img data-cms-img="maeil-bottle" src="images/maeil-bottle.webp" alt="Maeil Soymilk" loading="lazy" style="border-radius:10px">
+      <div class="bottle-wrap" data-anim="right" style="position: relative; overflow: hidden; border-radius: 10px;">
+        <div class="bottle-slider-container" style="display: flex; transition: transform 0.5s ease-in-out;">
+          <img data-cms-img="maeil-bottle-1" src="images/maeil-01.webp" alt="Maeil Soymilk 1" loading="lazy" style="flex: 0 0 100%; max-width: 100%; object-fit: contain;">
+          <!-- TODO: เปลี่ยนภาพด้านล่างเป็นภาพสินค้ามุมอื่นๆ -->
+          <img data-cms-img="maeil-bottle-2" src="images/maeil-02.webp" alt="Maeil Soymilk 2" loading="lazy" style="flex: 0 0 100%; max-width: 100%; object-fit: contain;">
+          <img data-cms-img="maeil-bottle-3" src="images/maeil-03.webp" alt="Maeil Soymilk 3" loading="lazy" style="flex: 0 0 100%; max-width: 100%; object-fit: contain;">
+          <img data-cms-img="maeil-bottle-4" src="images/maeil-04.webp" alt="Maeil Soymilk 4" loading="lazy" style="flex: 0 0 100%; max-width: 100%; object-fit: contain;">
+          <img data-cms-img="maeil-bottle-5" src="images/maeil-05.webp" alt="Maeil Soymilk 5" loading="lazy" style="flex: 0 0 100%; max-width: 100%; object-fit: contain;">
+        </div>
+        <div class="slider-dots" style="position: absolute; bottom: 0px; width: 100%; text-align: center; z-index: 10;">
+          <span class="dot" onclick="currentSlide(0)" style="cursor: pointer; height: 12px; width: 12px; margin: 0 5px; background-color: #333; border-radius: 50%; display: inline-block; transition: background-color 0.3s; box-shadow: 0 0 3px rgba(0,0,0,0.3);"></span>
+          <span class="dot" onclick="currentSlide(1)" style="cursor: pointer; height: 12px; width: 12px; margin: 0 5px; background-color: rgba(204, 204, 204, 0.8); border-radius: 50%; display: inline-block; transition: background-color 0.3s; box-shadow: 0 0 3px rgba(0,0,0,0.3);"></span>
+          <span class="dot" onclick="currentSlide(2)" style="cursor: pointer; height: 12px; width: 12px; margin: 0 5px; background-color: rgba(204, 204, 204, 0.8); border-radius: 50%; display: inline-block; transition: background-color 0.3s; box-shadow: 0 0 3px rgba(0,0,0,0.3);"></span>
+          <span class="dot" onclick="currentSlide(3)" style="cursor: pointer; height: 12px; width: 12px; margin: 0 5px; background-color: rgba(204, 204, 204, 0.8); border-radius: 50%; display: inline-block; transition: background-color 0.3s; box-shadow: 0 0 3px rgba(0,0,0,0.3);"></span>
+          <span class="dot" onclick="currentSlide(4)" style="cursor: pointer; height: 12px; width: 12px; margin: 0 5px; background-color: rgba(204, 204, 204, 0.8); border-radius: 50%; display: inline-block; transition: background-color 0.3s; box-shadow: 0 0 3px rgba(0,0,0,0.3);"></span>
+        </div>
       </div>
       <div data-anim="left">
         <div class="dm-will-logo"><img data-cms-img="maeil-logo" src="images/maeil-logo.webp" alt="Maeil"></div>
@@ -34,10 +48,10 @@
   <div class="wrap-md" style="text-align:center">
     <h2 class="sec-title" data-anim="up" data-i18n="retail_title">WHERE TO BUY PRODUCTS</h2>
     <div class="retail-row" data-stagger>
-      <div class="retail-circle" data-anim="scale"><img src="images/retail-lotus.webp" alt="Lotus's"></div>
-      <div class="retail-circle" data-anim="scale"><img src="images/retail-bigc.webp" alt="Big C"></div>
-      <div class="retail-circle" data-anim="scale"><img src="images/retail-gourmet.webp" alt="Gourmet Market"></div>
-      <div class="retail-circle" data-anim="scale"><img src="images/retail-tops.webp" alt="Tops"></div>
+      <div class="retail-circle" data-anim="scale"><img data-cms-img="home-retail-1" src="images/seven.webp" alt="seven"></div>
+      <div class="retail-circle" data-anim="scale"><img data-cms-img="home-retail-2" src="images/bigc.webp" alt="Big C"></div>
+      <div class="retail-circle" data-anim="scale"><img data-cms-img="home-retail-3" src="images/gourmet.webp" alt="Gourmet Market"></div>
+      <div class="retail-circle" data-anim="scale"><img data-cms-img="home-retail-4" src="images/tops.webp" alt="Tops"></div>
     </div>
   </div>
 </section>
@@ -48,5 +62,51 @@
 <script src="js/main.js"></script>
 <script src="js/cms.js"></script>
 <script src="js/includes.js"></script>
+
+<!-- Product Image Slider Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let slideIndex = 0;
+    const container = document.querySelector('.bottle-slider-container');
+    const slides = document.querySelectorAll('.bottle-slider-container img');
+    const dots = document.querySelectorAll('.slider-dots .dot');
+    let slideInterval;
+
+    if (!container || slides.length === 0) return;
+
+    function showSlide(index) {
+        if (index >= slides.length) slideIndex = 0;
+        if (index < 0) slideIndex = slides.length - 1;
+        
+        // เลื่อน Container แนวนอน
+        container.style.transform = `translateX(-${slideIndex * 100}%)`;
+        
+        // อัปเดตสถานะจุด Indicator
+        dots.forEach(dot => dot.style.backgroundColor = 'rgba(204, 204, 204, 0.8)');
+        if (dots[slideIndex]) dots[slideIndex].style.backgroundColor = '#333';
+    }
+
+    // สำหรับให้กดเลือกจากจุด Indicator
+    window.currentSlide = function(index) {
+        slideIndex = index;
+        showSlide(slideIndex);
+        resetInterval(); // กดแล้วรีเซ็ตเวลา Auto-play
+    };
+
+    function nextSlide() {
+        slideIndex++;
+        showSlide(slideIndex);
+    }
+
+    function resetInterval() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 4000); // ตั้ง Auto-play เลื่อนทุกๆ 4 วินาที
+    }
+
+    // เริ่มทำงานเมื่อโหลดเสร็จ
+    showSlide(slideIndex);
+    resetInterval();
+});
+</script>
 </body>
 </html>

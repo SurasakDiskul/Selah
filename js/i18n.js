@@ -10,6 +10,9 @@ window.SELAH_I18N = {
     /* nav */
     nav_home: 'HOME', nav_about: 'ABOUT', nav_products: 'PRODUCTS',
     nav_partners: 'PARTNERS', nav_contact: 'CONTACT',
+    nav_about_us: 'ABOUT US', nav_exclusive_partners: 'EXCLUSIVE PARTNER',
+    nav_products_all: 'ALL PRODUCTS', nav_prod_dutchmill: 'DUTCHMILL WILLS',
+    nav_prod_maeil: 'MAEIL SOYMILK', nav_prod_arabus: 'ARABUS COFFEE',
 
     /* home */
     home_intro_title: 'SELAH INTERNATIONAL',
@@ -89,6 +92,9 @@ window.SELAH_I18N = {
     /* nav */
     nav_home: 'หน้าแรก', nav_about: 'เกี่ยวกับเรา', nav_products: 'ผลิตภัณฑ์',
     nav_partners: 'พันธมิตร', nav_contact: 'ติดต่อ',
+    nav_about_us: 'เกี่ยวกับเรา', nav_exclusive_partners: 'พันธมิตรพิเศษเอ็กซ์คลูซีฟ',
+    nav_products_all: 'ผลิตภัณฑ์ทั้งหมด', nav_prod_dutchmill: 'DUTCHMILL WILLS',
+    nav_prod_maeil: 'MAEIL SOYMILK', nav_prod_arabus: 'ARABUS COFFEE',
 
     /* home */
     home_intro_title: 'SELAH INTERNATIONAL',

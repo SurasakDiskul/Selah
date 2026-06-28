@@ -14,28 +14,28 @@
   <div class="wrap-md">
     <h2 class="sec-title" data-anim="up" data-i18n="partners_title">OUR PARTNERS</h2>
 
-    <div class="partner-block" data-anim="up">
+    <div class="partner-block" data-anim="up"  onclick="linkpn('DUTCHMILL.CO.TH')">
       <div class="pb-logo-wrap"><img data-cms-img="partner-dutchmill" src="images/logo-dutchmill.webp" alt="Dutch Mill"></div>
       <p class="pb-name" data-i18n="partner_dutchmill_name">DUTCH MILL</p>
       <p class="pb-url" data-i18n="partner_dutchmill_url">OFFICIAL WEBSITE : DUTCHMILL.CO.TH</p>
     </div>
 
-    <div class="partner-block" data-anim="up">
+    <div class="partner-block" data-anim="up" onclick="linkpn('HY.CO.KR')">
       <div class="pb-logo-wrap"><img data-cms-img="partner-hy" src="images/logo-hy.webp" alt="HY"></div>
       <p class="pb-name" data-i18n="partner_hy_name">HY</p>
-      <p class="pb-url" data-i18n="partner_hy_url">OFFICIAL WEBSITE : HY.CO.KR</p>
+      <p class="pb-url" data-i18n="partner_hy_url" >OFFICIAL WEBSITE : HY.CO.KR</p>
     </div>
 
-    <div class="partner-block" data-anim="up">
+    <div class="partner-block" data-anim="up" onclick="linkpn('SEOULFNB.COM')">
       <div class="pb-logo-wrap"><img data-cms-img="partner-seoul" src="images/logo-seoul.webp" alt="Seoul F&B"></div>
       <p class="pb-name" data-i18n="partner_seoul_name">SEOUL F&amp;B</p>
-      <p class="pb-url" data-i18n="partner_seoul_url">OFFICIAL WEBSITE : SEOULFNB.COM</p>
+      <p class="pb-url" data-i18n="partner_seoul_url" >OFFICIAL WEBSITE : SEOULFNB.COM</p>
     </div>
 
-    <div class="partner-block" data-anim="up">
+    <div class="partner-block" data-anim="up" onclick="linkpn('MAEIL.COM')">
       <div class="pb-logo-wrap"><img data-cms-img="partner-maeil" src="images/logo-maeil.webp" alt="Maeil"></div>
       <p class="pb-name" data-i18n="partner_maeil_name">MAEIL</p>
-      <p class="pb-url" data-i18n="partner_maeil_url">OFFICIAL WEBSITE : MAEIL.COM</p>
+      <p class="pb-url" data-i18n="partner_maeil_url" >OFFICIAL WEBSITE : MAEIL.COM</p>
     </div>
   </div>
 </section>
@@ -46,5 +46,10 @@
 <script src="js/main.js"></script>
 <script src="js/cms.js"></script>
 <script src="js/includes.js"></script>
+<script>
+  function linkpn(link){
+    window.open("https://" + link, "_blank");
+  }
+</script>
 </body>
 </html>

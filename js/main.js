@@ -133,4 +133,39 @@ window.__selahMain = function () {
     });
     card.addEventListener('mouseleave', function () { card.style.transform = ''; });
   });
+
+  /* ---- HIGHLIGHTS MARQUEE (JS Smooth Step-by-Step) ---- */
+  var marqueeTrack = document.querySelector('.highlights-track');
+  if (marqueeTrack) {
+    var stepIndex = 0;
+    var totalItems = 10; // We have 10 original items + 10 cloned items
+    var isHovered = false;
+
+    marqueeTrack.addEventListener('mouseenter', function() { isHovered = true; });
+    marqueeTrack.addEventListener('mouseleave', function() { isHovered = false; });
+
+    setInterval(function() {
+      if (isHovered) return; // Pause when hovered
+
+      stepIndex++;
+      
+      // Calculate how far to translate. We move 1 item's width per step.
+      // Easiest way is to calculate percentage based on the number of items in a single set (10).
+      var translatePct = -(stepIndex * (100 / (totalItems * 2))); // *2 because of 2 sets
+      
+      marqueeTrack.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      marqueeTrack.style.transform = 'translateX(' + translatePct + '%)';
+
+      // Reset seamlessly when reaching the end of the first set (10 items)
+      if (stepIndex >= totalItems) {
+        setTimeout(function() {
+          // Disable transition temporarily to snap back to the start instantly
+          marqueeTrack.style.transition = 'none';
+          marqueeTrack.style.transform = 'translateX(0%)';
+          stepIndex = 0;
+        }, 650); // wait slightly longer than the transition duration
+      }
+    }, 2500); // Wait 2.5 seconds before moving to the next image
+  }
+
 };

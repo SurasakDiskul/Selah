@@ -10,11 +10,25 @@
     </div>
 
     <ul class="nav-links">
-      <li><a href="index"    data-nav="index"    data-i18n="nav_home">HOME</a></li>
-      <li><a href="about"    data-nav="about"    data-i18n="nav_about">ABOUT</a></li>
-      <li><a href="products" data-nav="products" data-i18n="nav_products">PRODUCTS</a></li>
+      <li><a href="index" data-nav="index" data-i18n="nav_home">HOME</a></li>
+      <li class="has-dropdown">
+        <a href="about" data-nav="about"><span data-i18n="nav_about">ABOUT</span> <i class="fas fa-angle-down" style="font-size:0.75em; margin-left:4px;"></i></a>
+        <ul class="dropdown">
+          <li><a href="about" data-i18n="nav_about_us">ABOUT US</a></li>
+          <li><a href="exclusive_partners" data-i18n="nav_exclusive_partners">EXCLUSIVE PARTNER</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="products" data-nav="products"><span data-i18n="nav_products">PRODUCTS</span> <i class="fas fa-angle-down" style="font-size:0.75em; margin-left:4px;"></i></a>
+        <ul class="dropdown">
+          <li><a href="products" data-i18n="nav_products_all">ALL PRODUCTS</a></li>
+          <li><a href="dutchmill" data-i18n="nav_prod_dutchmill">DUTCHMILL WILLS</a></li>
+          <li><a href="maeil" data-i18n="nav_prod_maeil">MAEIL SOYMILK</a></li>
+          <li><a href="arabus" data-i18n="nav_prod_arabus">ARABUS COFFEE</a></li>
+        </ul>
+      </li>
       <li><a href="partners" data-nav="partners" data-i18n="nav_partners">PARTNERS</a></li>
-      <li><a href="contact"  data-nav="contact"  data-i18n="nav_contact">CONTACT</a></li>
+      <li><a href="contact" data-nav="contact" data-i18n="nav_contact">CONTACT</a></li>
       <li><button class="lang-toggle" type="button" onclick="window.selahToggleLang&&window.selahToggleLang()" aria-label="Switch language"><span class="globe">&#127760;</span><span class="lang-cur">EN</span></button></li>
     </ul>
 
@@ -22,10 +36,24 @@
   </div>
 </nav>
 <nav class="mob-nav" id="mobNav">
-  <a href="index"    data-nav="index"    data-i18n="nav_home">HOME</a>
-  <a href="about"    data-nav="about"    data-i18n="nav_about">ABOUT</a>
-  <a href="products" data-nav="products" data-i18n="nav_products">PRODUCTS</a>
+  <a href="index" data-nav="index" data-i18n="nav_home">HOME</a>
+  <div class="mob-dropdown">
+    <a href="about" data-nav="about" data-i18n="nav_about">ABOUT</a>
+    <div class="mob-sub">
+      <a href="about" data-i18n="nav_about_us">- ABOUT US</a>
+      <a href="exclusive_partners" data-i18n="nav_exclusive_partners">- EXCLUSIVE PARTNER</a>
+    </div>
+  </div>
+  <div class="mob-dropdown">
+    <a href="products" data-nav="products" data-i18n="nav_products">PRODUCTS</a>
+    <div class="mob-sub">
+      <a href="products" data-i18n="nav_products_all">- ALL PRODUCTS</a>
+      <a href="dutchmill" data-i18n="nav_prod_dutchmill">- DUTCHMILL WILLS</a>
+      <a href="maeil" data-i18n="nav_prod_maeil">- MAEIL SOYMILK</a>
+      <a href="arabus" data-i18n="nav_prod_arabus">- ARABUS COFFEE</a>
+    </div>
+  </div>
   <a href="partners" data-nav="partners" data-i18n="nav_partners">PARTNERS</a>
-  <a href="contact"  data-nav="contact"  data-i18n="nav_contact">CONTACT</a>
+  <a href="contact" data-nav="contact" data-i18n="nav_contact">CONTACT</a>
   <a href="#" onclick="window.selahToggleLang&&window.selahToggleLang();return false;">&#127760; <span class="lang-cur">EN</span></a>
 </nav>

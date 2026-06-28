@@ -4,7 +4,8 @@
    Light Blue #39CCFF  ·  White #FFFFFF
    ============================================================ */
 
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anuphan:wght@200;300;400;500;600;700&family=Oswald:wght@200;300;400;500;600;700&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
 
 *,
 *::before,
@@ -31,15 +32,15 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: "Oswald", "Sarabun", sans-serif;
+  font-family: "Oswald", "Anuphan", sans-serif;
   color: var(--body-text);
   background: #fff;
   overflow-x: hidden;
   font-weight: 300;
 }
-/* Thai language uses Sarabun for body legibility */
+/* Thai language uses Anuphan for body legibility */
 html[lang="th"] body {
-  font-family: "Sarabun", "Oswald", sans-serif;
+  font-family: "Anuphan", "Oswald", sans-serif;
 }
 
 a {
@@ -122,7 +123,9 @@ button {
   right: 0;
   z-index: 9000;
   width: 100%;
-  transition: background 0.35s, box-shadow 0.3s;
+  transition:
+    background 0.35s,
+    box-shadow 0.3s;
 }
 .navbar.transparent {
   background: transparent;
@@ -134,7 +137,7 @@ body.hero-page {
   padding-top: 0;
 }
 body.hero-page .hero {
-  margin-top: -74px;
+  margin-top: 0px;
   padding-top: 0;
 }
 .navbar.shadow {
@@ -144,7 +147,7 @@ body.hero-page .hero {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 26px;
-  height: 74px;
+  height: 90px;
   display: flex;
   align-items: center;
   gap: 18px;
@@ -271,6 +274,50 @@ body.hero-page .hero {
   transform: scaleX(1);
 }
 
+/* Dropdown (Desktop) */
+.has-dropdown {
+  position: relative;
+}
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--navy);
+  min-width: 200px;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s var(--ease);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+.has-dropdown:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.dropdown li {
+  display: block;
+}
+.dropdown li a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.82);
+  border: none;
+}
+.dropdown li a::after {
+  display: none !important;
+}
+.dropdown li a:hover,  
+.dropdown li a.active {
+  background: #39CCFF;
+  color: #fff;
+}
+
 /* Language toggle */
 .lang-toggle {
   background: none;
@@ -370,12 +417,39 @@ body.hero-page .hero {
   padding-left: 10px;
 }
 
+/* Mobile Dropdown */
+.mob-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+.mob-sub {
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.15);
+  border-left: 2px solid var(--blue);
+  margin: 0 0 10px 10px;
+}
+.mob-sub a {
+  font-size: 1.1rem;
+  padding: 12px 0 12px 16px;
+  color: rgba(255, 255, 255, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.mob-sub a:last-child {
+  border-bottom: none;
+}
+.mob-sub a:hover,
+.mob-sub a.active {
+  padding-left: 24px;
+  color: #fff;
+}
+
 /* ============================================================
    HERO SLIDER
    ============================================================ */
 .hero {
   position: relative;
-  height: clamp(500px, 46vw, 100vh);
+  height: clamp(500px, 100vh, 100vh);
   overflow: hidden;
   background: var(--maroon);
 }
@@ -690,7 +764,7 @@ html[lang="th"] .intro-body {
 }
 
 /* ============================================================
-   RECENT HIGHLIGHTS — full-bleed grid, 2 rows x 5 cols
+   RECENT HIGHLIGHTS — Marquee Slider
    ============================================================ */
 .highlights-sec {
   padding: 54px 0 0;
@@ -705,42 +779,63 @@ html[lang="th"] .intro-body {
   margin-bottom: 30px;
   text-transform: uppercase;
 }
-.highlights-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+.highlights-marquee {
+  width: 100%;
+  overflow: hidden;
   margin-bottom: 3rem;
+  position: relative;
+}
+.highlights-track {
+  display: flex;
+  width: max-content;
+  transition: transform 0.5s var(--ease);
+}
+.highlights-track:hover {
+  /* optional: stop sliding visually, handled by JS later if needed */
+}
+.highlights-set {
+  display: flex;
 }
 .highlights-tile {
-  aspect-ratio: auto;
+  /* Exactly 1 image per viewport on mobile, or 4 on desktop?
+     To slide "one image at a time" cleanly with steps, 
+     it's best if we just let it shift by the exact width of one tile. 
+     Let's define tile width explicitly. */
+  width: 25vw; 
+  flex-shrink: 0;
+  padding: 0 4px;
+}
+@media (max-width: 960px) {
+  .highlights-tile { width: 33.333vw; }
+}
+@media (max-width: 600px) {
+  .highlights-tile { width: 50vw; }
+}
+.ht-inner {
+  width: 100%;
+  aspect-ratio: 0;
   overflow: hidden;
   position: relative;
   background: var(--light-gray);
 }
-.highlights-tile img {
+.ht-inner img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition:
-    transform 0.5s var(--ease),
-    filter 0.3s;
+  transition: transform 0.5s var(--ease), filter 0.3s;
 }
-.highlights-tile:hover img {
+.ht-inner:hover img {
   transform: scale(1.1);
 }
-.highlights-tile::after {
+.ht-inner::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 40%,
-    rgba(19, 49, 124, 0.35) 100%
-  );
+  background: linear-gradient(180deg, transparent 40%, rgba(19, 49, 124, 0.35) 100%);
   opacity: 0;
   transition: opacity 0.3s;
 }
-.highlights-tile:hover::after {
+.ht-inner:hover::after {
   opacity: 1;
 }
 
@@ -813,12 +908,12 @@ html[lang="th"] .intro-body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.16);
   color: #fff;
-  font-size: 0.72rem;
+  font-size: 15px;
   margin: 0 3px;
   transition:
     background 0.2s,
@@ -884,7 +979,7 @@ html[lang="th"] .intro-body {
    PAGE HERO (about / product)
    ============================================================ */
 .page-hero {
-  height: clamp(280px, 32vw, 460px);
+  height: clamp(500px, 46vw, 800px);
   overflow: hidden;
   position: relative;
   background: #0a1020;
@@ -942,11 +1037,11 @@ html[lang="th"] .intro-body {
   color: rgba(19, 49, 124, 0.55);
 }
 .body-para {
-  text-align: center;
-  font-size: 1rem;
+  text-align: center; 
+  font-size: 1.5rem;
   line-height: 1.9;
   color: var(--navy);
-  max-width: 680px;
+  max-width: 820px;
   margin: 0 auto 20px;
   font-weight: 300;
 }
@@ -958,13 +1053,14 @@ html[lang="th"] .body-para {
 }
 .about-photo {
   width: 100%;
-  max-height: 460px;
+  max-height: 100%;
   overflow: hidden;
 }
 .about-photo img {
-  width: 100%;
+  width: 80%;
   object-fit: cover;
   object-position: center;
+  place-self: center;
 }
 
 /* Partner showcase (exclusive) */
@@ -1027,7 +1123,7 @@ html[lang="th"] .body-para {
 }
 .tl-media img {
   width: 100%;
-  aspect-ratio: 4/3;
+  aspect-ratio: 0;
   object-fit: cover;
   transition: transform 0.5s var(--ease);
 }
@@ -1038,23 +1134,24 @@ html[lang="th"] .body-para {
   text-align: center;
 }
 .tl-info .tl-logo {
-  max-height: 90px;
+  max-height: 150px;
   margin: 0 auto 18px;
   object-fit: contain;
 }
 .tl-info .tl-divider {
-  width: 70%;
-  height: 1px;
-  background: rgba(19, 49, 124, 0.25);
+  width: 100%;
+  height: 3px;
+  background: rgb(19 49 124);
   margin: 18px auto;
 }
 .tl-year {
   font-family: "Oswald", sans-serif;
-  font-size: 1.05rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   color: var(--navy);
   text-transform: uppercase;
+  text-align: end;
 }
 .tl-info a.tl-cta {
   display: inline-block;
@@ -1067,13 +1164,14 @@ html[lang="th"] .body-para {
   text-transform: uppercase;
   border-bottom: 1px solid var(--blue);
   padding-bottom: 2px;
+  float: right;
 }
 
 /* ============================================================
    PRODUCT DETAIL PAGE
    ============================================================ */
 .prod-hero {
-  height: clamp(300px, 40vw, 540px);
+  height: clamp(500px, 50vw, 800px);
   overflow: hidden;
   position: relative;
   background: var(--maroon);
@@ -1100,21 +1198,21 @@ html[lang="th"] .body-para {
 }
 .prod-detail-grid {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 450px 1fr;
   gap: 64px;
   align-items: center;
 }
 .prod-detail-grid.reverse .bottle-wrap {
-  order: 2;
+  order: 0;
 }
 .bottle-wrap {
   text-align: center;
 }
 .bottle-wrap img {
-  max-height: 480px;
+  max-height: 100%;
   object-fit: contain;
   margin: 0 auto;
-  filter: drop-shadow(0 14px 34px rgba(0, 0, 0, 0.18));
+  /* filter: drop-shadow(0 14px 34px rgba(0, 0, 0, 0.18)); */
   transition: transform 0.45s var(--ease);
 }
 .bottle-wrap:hover img {
@@ -1124,18 +1222,18 @@ html[lang="th"] .body-para {
   margin-bottom: 24px;
 }
 .dm-will-logo img {
-  max-height: 90px;
+  max-height: 150px;
   object-fit: contain;
 }
 .prod-lead {
   color: var(--navy);
   font-weight: 600;
-  font-size: 1.05rem;
+  font-size: 2rem;
   line-height: 1.75;
   margin-bottom: 18px;
 }
 .prod-body {
-  font-size: 0.96rem;
+  font-size: 1.5rem;
   color: var(--navy);
   line-height: 1.9;
   font-weight: 300;
@@ -1170,7 +1268,7 @@ html[lang="th"] .body-para {
 }
 .pb-name {
   font-family: "Oswald", sans-serif;
-  font-size: 1.35rem;
+  font-size: 2rem;
   font-weight: 700;
   letter-spacing: 2px;
   color: var(--navy);
@@ -1178,7 +1276,7 @@ html[lang="th"] .body-para {
 }
 .pb-url {
   font-family: "Oswald", sans-serif;
-  font-size: 0.92rem;
+  font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: 1.5px;
   color: var(--navy);
@@ -1265,7 +1363,7 @@ html[lang="th"] .body-para {
     border-color 0.2s;
 }
 html[lang="th"] .cf {
-  font-family: "Sarabun", sans-serif;
+  font-family: "Anuphan", sans-serif;
 }
 .cf::placeholder {
   color: #9fb0d6;
@@ -1361,9 +1459,6 @@ textarea.cf {
   .products-grid {
     grid-template-columns: 1fr 1fr;
   }
-  .highlights-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .ep-row {
     gap: 40px;
   }
@@ -1425,4 +1520,45 @@ textarea.cf {
   .submit-btn {
     padding: 16px 50px;
   }
+}
+
+/* ============================================================
+   GLOBAL FONT OVERRIDE FOR THAI LANGUAGE SUPPORT
+   ============================================================ */
+body,
+.brand-name,
+.np-samsung,
+.np-vms,
+.nav-links a,
+.lang-toggle,
+.mob-nav a,
+.sec-title,
+.card-logo-name,
+.intro-tagline,
+.ep-txt,
+.prod-label,
+.banner-l1,
+.banner-l2,
+.highlights-label,
+.foot-logo-name,
+.foot-nav,
+.foot-follow,
+.foot-sub-title,
+.foot-sub-form input,
+.about-title,
+.sep-title,
+.about-logo-texts .al-name,
+.ps-name,
+.ps-url,
+.tl-year,
+.tl-info a.tl-cta,
+.prod-page-title,
+.pb-name,
+.pb-url,
+.ci-name-en,
+.ci-addr-en,
+.ci-row,
+.cf,
+.submit-btn {
+  font-family: "Oswald", "Anuphan", sans-serif !important;
 }
